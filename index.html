@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+</head>
+
+<body>
+    <section id='numbersEntry'>
+        <label for="entry">Type a number then click "Enter"</label>
+        <input id="entry" type="number">
+        <button id="enter">Enter</button>
+        <h4>Accumulator: <span id='acc'>Type some number above</span></h4>
+    </section>
+
+    <section id='operationEntry'>
+        <label for="operation">Select operation</label>
+        <input type="radio" name="operation" value="+">+</input>
+        <input type="radio" name="operation" value="-">-</input>
+        <input type="radio" name="operation" value="*">*</input>
+        <input type="radio" name="operation" value="/">/</input>
+    </section>
+
+    <section id='result'>
+        <button id="equals">=</button>
+        <h4>Result: <span id="result"></span></h4>
+    </section>
+
+    <section id='result'>
+        <button id="reset">Reset</button>
+    </section>
+
+    <script src="calculator.js"></script>
+
+</body>
+
+</html>
