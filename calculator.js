@@ -11,7 +11,6 @@ let calculator = (() => {
         '/': divide,
     };
     let entries = [];
-    let history = new Map();
 
     const enter = (data) => {
         entries = [...entries, data];
@@ -19,16 +18,11 @@ let calculator = (() => {
     };
 
     const equals = (operator) => {
-        return operation[operator](entries);
+        return entries.length === 0 ? 'There are no numbers in accumulator' : operation[operator](entries);
     };
-
-    // const list = () => {
-    //     return history;
-    // };
 
     const reset = () => {
         entries = [];
-        // return 'Calculator history erased!';
     };
 
     return { enter, equals, reset };
@@ -49,7 +43,7 @@ enterButton.onclick = function () {
 
 equalsButton.onclick = function () {
     const operator = document.querySelector('input[type=radio]:checked');
-    operationResult.innerText = calculator.equals(operator.value);
+    operationResult.innerText = operator === null ? 'Please choose an operation' : calculator.equals(operator.value);
 };
 
 resetButton.onclick = function () {
