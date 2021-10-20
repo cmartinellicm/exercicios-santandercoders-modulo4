@@ -18,7 +18,7 @@ let calculator = (() => {
     };
 
     const equals = (operator) => {
-        return entries.length === 0 ? 'There are no numbers in accumulator' : operation[operator](entries);
+        return entries.length < 2 ? 'Please insert at least 2 numbers in accumulator' : operation[operator](entries);
     };
 
     const reset = () => {
