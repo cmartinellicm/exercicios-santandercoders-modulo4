@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+
+    <style>
+        body {
+            font-family: Helvetica;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Users Registration</h1>
+
+    <form id="newUserForm">
+        <label for="user">Type new user name</label>
+        <input type="text" id="newUserName"></input>
+        <button type="submit" name="addButton">Add</button>
+    </form>
+
+    <section>
+        <h3>Users List</h3>
+        <ul id="usersList"></ul>
+    </section>
+
+    <script>
+        const newUserForm = document.querySelector('#newUserForm');
+        const usersList = document.querySelector('#usersList');
+
+        newUserForm.addEventListener('submit', function (evt) {
+            const newUserName = document.querySelector('input#newUserName');
+
+            addUser(newUserName.value);
+            newUserName.value = '';
+            evt.preventDefault();
+        })
+
+        usersList.addEventListener('click', function (evt) {
+            usersList.removeChild(evt.target.parentElement);
+        })
+
+        function addUser(user) {
+            const li = document.createElement('li');
+            const btn = document.createElement('button');
+
+            li.appendChild(document.createTextNode(`${user}`));
+            btn.innerText = 'Remove';
+            btn.className = 'removeButton';
+
+            usersList.appendChild(li).appendChild(btn);
+        }
+    </script>
+</body>
+
+</html>
