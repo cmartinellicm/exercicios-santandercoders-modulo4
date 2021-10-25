@@ -9,11 +9,16 @@
 </head>
 
 <body>
+    <header>
+        <h1>Calculator</h1>
+    </header>
+
     <section id="numbersEntry">
         <label for="entry">Type a number then click "Enter"</label>
         <input id="entry" type="number">
         <button id="enter">Enter</button>
-        <h4>Accumulator: <span id="acc">Type some number above</span></h4>
+        <h4>Accumulator: <span id="acc">Type a number above</span></h4>
+        <button id="resetAcc">Reset Accumulator</button>
     </section>
 
     <section id="operationEntry">
@@ -29,11 +34,14 @@
         <h4>Result: <span id="result"></span></h4>
     </section>
 
-    <section id="result">
-        <button id="reset">Reset</button>
+    <section id="history">
+        <h4>History:</h4>
+        <ul id="historyList"></ul>
+        <button id="resetHistory">Reset History</button>
     </section>
 
     <script src="calculator.js"></script>
+    <script src="index.js"></script>
 </body>
 
 </html>
