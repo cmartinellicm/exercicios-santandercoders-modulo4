@@ -28,6 +28,7 @@ equalsButton.onclick = function () {
         } else {
             operationResult.innerText = 'Please insert at least 2 numbers in accumulator';
         }
+        operator.checked = false;
     }
 };
 
@@ -39,6 +40,8 @@ resetAccButton.onclick = function () {
 
 resetHistoryButton.onclick = function () {
     historyList.innerText = '';
+    accumulator.innerText = '';
+    operationResult.innerText = '';
 };
 
 function updateHistory(currentOperation) {

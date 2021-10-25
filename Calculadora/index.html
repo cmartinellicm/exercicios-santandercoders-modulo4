@@ -5,40 +5,65 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Calculator</title>
+
+    <style>
+        main.container {
+            width: 50%;
+        }
+    </style>
 </head>
 
 <body>
-    <header>
-        <h1>Calculator</h1>
+    <header class="container">
+        <h1 class="text-center p-3">Calculator</h1>
     </header>
 
-    <section id="numbersEntry">
-        <label for="entry">Type a number then click "Enter"</label>
-        <input id="entry" type="number">
-        <button id="enter">Enter</button>
-        <h4>Accumulator: <span id="acc">Type a number above</span></h4>
-        <button id="resetAcc">Reset Accumulator</button>
-    </section>
+    <main class="container">
+        <section class="py-2" id="numbersEntry">
+            <div class="mb-3">
+                <h6 class="pb-2">Type a number then click "Enter"</h6>
+                <input type="number" class="form-control" id="entry">
+            </div>
+            <button class="btn btn-primary" id="enter">Enter</button>
+        </section>
 
-    <section id="operationEntry">
-        <label for="operation">Select operation</label>
-        <input type="radio" name="operation" value="+">+</input>
-        <input type="radio" name="operation" value="-">-</input>
-        <input type="radio" name="operation" value="*">*</input>
-        <input type="radio" name="operation" value="/">/</input>
-    </section>
+        <section class="py-2" id="accumulator">
+            <h6 class="pb-2">Accumulator: <span class="text-danger" id="acc">Type a number above</span></h6>
+            <button class="btn btn-secondary" id="resetAcc">Reset Accumulator</button>
+        </section>
 
-    <section id="result">
-        <button id="equals">=</button>
-        <h4>Result: <span id="result"></span></h4>
-    </section>
+        <section class="py-2" id="operationEntry">
+            <div class="mb-3">
+                <h6 class="pb-2">Select operation:</h6>
+                <input type="radio" class="form-check-input mr-2" name="operation" value="+">
+                <span class="mx-2">+</span>
+                </input>
+                <input type="radio" class="form-check-input mr-2" name="operation" value="-">
+                <span class="mx-2">-</span>
+                </input>
+                <input type="radio" class="form-check-input mr-2" name="operation" value="*">
+                <span class="mx-2">*</span>
+                </input>
+                <input type="radio" class="form-check-input mr-2" name="operation" value="/">
+                <span class="mx-2">/</span>
+                </input>
+            </div>
+            <button class="btn btn-success" id="equals">=</button>
+        </section>
 
-    <section id="history">
-        <h4>History:</h4>
-        <ul id="historyList"></ul>
-        <button id="resetHistory">Reset History</button>
-    </section>
+        <section class="py-2" id="result">
+            <h6>Result: <span class="text-danger" id="result"></span></h6>
+        </section>
+
+        <section class="py-2" id="history">
+            <h6>History:</h6>
+            <ul id="historyList"></ul>
+            <button class="btn btn-secondary" id="resetHistory">Reset History</button>
+        </section>
+    </main>
 
     <script src="calculator.js"></script>
     <script src="index.js"></script>
