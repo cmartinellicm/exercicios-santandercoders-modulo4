@@ -11,6 +11,7 @@ let calculator = (() => {
         '/': divide,
     };
     let entries = [];
+    let history = new Map();
 
     const enter = (data) => {
         entries = [...entries, data];
@@ -18,7 +19,15 @@ let calculator = (() => {
     };
 
     const equals = (operator) => {
-        return entries.length < 2 ? 'Please insert at least 2 numbers in accumulator' : operation[operator](entries);
+        if (entries.length < 2) {
+            return 'Please insert at least 2 numbers in accumulator';
+        } else {
+            const operationLog = entries.join(` ${operator} `);
+            const result = operation[operator](entries);
+
+            history.set(operationLog, result);
+            return `${operationLog} = ${result}`;
+        }
     };
 
     const reset = () => {
