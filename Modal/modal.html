@@ -8,27 +8,42 @@
     <title>Modal</title>
     <style>
         body {
-            background: #909090;
+            background: #dddddd;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        input {
+            margin: 5px 0px;
+        }
+
+        form button {
+            margin: 0px 5px;
         }
 
         .modal {
             background: #e6e6e6;
             box-shadow: 5px 5px 30px rgb(0 0 0 / 10%);
             box-sizing: border-box;
-            width: 200px;
-            height: 150px;
+            width: 250px;
+            height: 250px;
             opacity: 1;
             padding: 15px;
             position: fixed;
             transition: .15s all ease;
-            top: calc(50% - 75px);
-            left: calc(50% - 100px);
+            top: calc(50% - 125px);
+            left: calc(50% - 125px);
+            text-align: center;
         }
 
         .modal:not(.--is-open) {
             opacity: 0;
             pointer-events: none;
             transform: scale(.6);
+        }
+
+        .modal-footer {
+            text-align: center;
+            padding: 10px;
         }
     </style>
 </head>
@@ -37,11 +52,14 @@
     <button type="button" name="open-modal" onclick="handleModal.open()">Open modal</button>
     <div class="modal">
         <form class="user-form">
+            <h3>User information</h3>
             <input type="text" name="firstName" required placeholder="Type first name">
             <input type="text" name="lastName" required placeholder="Type last name">
             <input type="email" name="email" required placeholder="Type your email">
-            <button type="button" name="close-modal" onclick="handleModal.close()">Cancel</button>
-            <button type="submit" name="send-form">Ok</button>
+            <div class="modal-footer">
+                <button type="button" name="close-modal" onclick="handleModal.close()">Cancel</button>
+                <button type="submit" name="send-form">Ok</button>
+            </div>
         </form>
     </div>
 
