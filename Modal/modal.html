@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal</title>
+    <style>
+        body {
+            background: #909090;
+        }
+
+        .modal {
+            background: #e6e6e6;
+            box-shadow: 5px 5px 30px rgb(0 0 0 / 10%);
+            box-sizing: border-box;
+            width: 200px;
+            height: 150px;
+            opacity: 1;
+            padding: 15px;
+            position: fixed;
+            transition: .15s all ease;
+            top: calc(50% - 75px);
+            left: calc(50% - 100px);
+        }
+
+        .modal:not(.--is-open) {
+            opacity: 0;
+            pointer-events: none;
+            transform: scale(.6);
+        }
+    </style>
+</head>
+
+<body>
+    <button type="button" name="open-modal">Open modal</button>
+    <div class="modal">
+        <form class="user-form">
+            <input type="text" name="firstName" required placeholder="Type first name">
+            <input type="text" name="lastName" required placeholder="Type last name">
+            <input type="email" name="email" required placeholder="Type your email">
+            <button type="button" name="close-modal">Cancel</button>
+            <button type="submit" name="send-form">Ok</button>
+        </form>
+    </div>
+
+    <script>
+        const modal = document.querySelector('.modal');
+        const userForm = document.querySelector('.user-form')
+        const openModalBtn = document.querySelector('button[name=open-modal]');
+        const cancelBtn = document.querySelector('button[name=close-modal]');
+
+        openModalBtn.onclick = function () {
+            modal.classList.add('--is-open');
+        }
+
+        cancelBtn.onclick = function () {
+            modal.classList.remove('--is-open');
+        }
+
+        userForm.addEventListener('submit', function (evt) {
+            const user = {
+                firstName: document.querySelector('input[name=firstName]').value,
+                lastName: document.querySelector('input[name=lastName]').value,
+                email: document.querySelector('input[name=email]').value
+            }
+            console.log(`First Name: ${user.firstName}\nLast Name: ${user.lastName}\nEmail: ${user.email}`);
+            evt.preventDefault();
+        })
+
+    </script>
+</body>
+
+</html>
