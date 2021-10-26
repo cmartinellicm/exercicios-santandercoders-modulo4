@@ -4,7 +4,7 @@ Atividades propostas no curso Santander Coders | Web Full-Stack Degree realizado
 
 ## Calculadora
 
-_Implementado o módulo calculadora em uma página da web simples, utilizando um input para números e um seletor de operação._
+_Módulo calculadora em uma página da web simples, utilizando um input para números e um seletor de operação._
 
 * O usuário digita o primeiro número e aperta o botão `Enter`
 * O sistema guarda o número e limpa o input
@@ -18,7 +18,7 @@ _Implementado o módulo calculadora em uma página da web simples, utilizando um
 
 ## Cadastro
 
-_Implementado um cadastro simples de usuários, onde o nome inserido é incluído na lista de usuário cadastrados, podendo também ser removido da lista._
+_Cadastro simples de usuários, onde o nome inserido é incluído na lista de usuários cadastrados, podendo também ser removido da lista._
 
 * O usuário digita o nome do usuário e aperta o botão `Add`
 * O usuário é adicionado à `Users List` junto com um botão `Remove`
