@@ -34,40 +34,48 @@
 </head>
 
 <body>
-    <button type="button" name="open-modal">Open modal</button>
+    <button type="button" name="open-modal" onclick="handleModal.open()">Open modal</button>
     <div class="modal">
         <form class="user-form">
             <input type="text" name="firstName" required placeholder="Type first name">
             <input type="text" name="lastName" required placeholder="Type last name">
             <input type="email" name="email" required placeholder="Type your email">
-            <button type="button" name="close-modal">Cancel</button>
+            <button type="button" name="close-modal" onclick="handleModal.close()">Cancel</button>
             <button type="submit" name="send-form">Ok</button>
         </form>
     </div>
 
     <script>
-        const modal = document.querySelector('.modal');
-        const userForm = document.querySelector('.user-form')
-        const openModalBtn = document.querySelector('button[name=open-modal]');
-        const cancelBtn = document.querySelector('button[name=close-modal]');
+        const handleModal = (function () {
+            const _modal = document.querySelector('.modal');
+            const _userForm = document.querySelector('.user-form')
 
-        openModalBtn.onclick = function () {
-            modal.classList.add('--is-open');
-        }
+            function open() {
+                _modal.classList.add('--is-open');
 
-        cancelBtn.onclick = function () {
-            modal.classList.remove('--is-open');
-        }
-
-        userForm.addEventListener('submit', function (evt) {
-            const user = {
-                firstName: document.querySelector('input[name=firstName]').value,
-                lastName: document.querySelector('input[name=lastName]').value,
-                email: document.querySelector('input[name=email]').value
+                _userForm.addEventListener('submit', function (evt) {
+                    const user = {
+                        firstName: document.querySelector('input[name=firstName]').value,
+                        lastName: document.querySelector('input[name=lastName]').value,
+                        email: document.querySelector('input[name=email]').value
+                    }
+                    console.log(`First Name: ${user.firstName}\nLast Name: ${user.lastName}\nEmail: ${user.email}`);
+                    evt.preventDefault();
+                })
             }
-            console.log(`First Name: ${user.firstName}\nLast Name: ${user.lastName}\nEmail: ${user.email}`);
-            evt.preventDefault();
-        })
+
+            function close() {
+                _modal.classList.remove('--is-open');
+            }
+
+            function cancel() { }
+
+            return {
+                open,
+                close,
+                cancel
+            }
+        })()
 
     </script>
 </body>
