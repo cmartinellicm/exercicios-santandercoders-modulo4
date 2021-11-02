@@ -44,6 +44,8 @@
         }
 
         generateListBtn.addEventListener('click', function () {
+            randomList.innerHTML = "";
+
             const firstList = createPromise(1000);
             const secondList = createPromise(2000);
             const thirdList = createPromise(3000);
