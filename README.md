@@ -23,3 +23,12 @@ _Cadastro simples de usuários, onde o nome inserido é incluído na lista de us
 * O usuário digita o nome do usuário e aperta o botão `Add`
 * O usuário é adicionado à `Users List` junto com um botão `Remove`
 * Para remover o usuário da lista, clicar no botão `Remove` do respectivo usuário
+
+## Promises
+
+_Criação de 3 promises resolvidas em tempos diferentes, com resultados apresentados quando todas forem resolvidas._
+
+* O botão "Gerar lista" cria 3 promises que são resolvidas cada uma em seu tempo e exibe uma lista com o resultado das promises geradas
+* Cada uma dessas promises é resolvida com um array que recebe um length aleatório (de 1 a 10)
+* Cada array é totalmente preenchido com números aleatórios
+* Após as 3 promises serem resolvidas, são exibidos todos os resultados em uma lista criada no HTML

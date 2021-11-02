@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio Promises Cássia Martinelli</title>
+</head>
+
+<body>
+    <h1>Desafio Promises Cássia Martinelli</h1>
+    <button name="generateList">Gerar Lista</button>
+
+    <script>
+        const generateListBtn = document.querySelector('button[name=generateList]')
+
+        const generateRandomArray = () => {
+            const randomArray = [];
+            randomArray.length = Math.ceil(Math.random() * 10);
+
+            for (let i = 0; i < randomArray.length; i++) {
+                randomArray[i] = Math.floor(Math.random() * 100);
+            }
+            return randomArray;
+        }
+
+        const createPromise = (time) => {
+            const newPromise = new Promise((resolve, reject) => {
+                setTimeout(() => resolve(generateRandomArray()), time)
+            })
+            return newPromise;
+        }
+
+        generateListBtn.addEventListener('click', function () {
+            const promise1 = createPromise(1000);
+            const promise2 = createPromise(2000);
+            const promise3 = createPromise(3000);
+
+            Promise.allSettled([promise1, promise2, promise3]).then((results) => results.forEach((result) => console.log(result.value)));
+            // array.flatMap() no lugar de forEach() para juntar os 2 arrays
+            // tentar usar async await
+        })
+
+        // https://codepen.io/nardocesar/pen/qBXXyKY?editors=0011
+    </script>
+</body>
+
+</html>
