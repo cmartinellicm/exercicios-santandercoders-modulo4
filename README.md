@@ -28,7 +28,15 @@ _Cadastro simples de usuários, onde o nome inserido é incluído na lista de us
 
 _Criação de 3 promises resolvidas em tempos diferentes, com resultados apresentados quando todas forem resolvidas._
 
-* O botão "Gerar lista" cria 3 promises que são resolvidas cada uma em seu tempo e exibe uma lista com o resultado das promises geradas
+* O botão `Gerar lista` cria 3 promises que são resolvidas cada uma em seu tempo e exibe uma lista com o resultado das promises geradas
 * Cada uma dessas promises é resolvida com um array que recebe um length aleatório (de 1 a 10)
 * Cada array é totalmente preenchido com números aleatórios
 * Após as 3 promises serem resolvidas, são exibidos todos os resultados em uma lista criada no HTML
+
+## Modal
+
+_Exibição de modal e captura de dados preenchidos em formulário_
+
+* Botão `Open modal` abre modal na tela com formulário
+* Usuário preenche formulário e clica no botão `Ok`, os dados preenchidos são capturados e exibidos no console
+* Para fechar modal, clicar no botão `Cancel`
