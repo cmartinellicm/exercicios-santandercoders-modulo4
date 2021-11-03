@@ -1,0 +1,57 @@
+<!-- https://docs.google.com/presentation/d/1V6kpbiBvG9JgY_EFLDFgfn2I9JgK4cMjYBN5KJrjVcQ/edit?usp=sharing -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag Race</title>
+</head>
+
+<body>
+    <h1>Drag Race | Cássia Martinelli</h1>
+    <form>
+        <input type="text" name="contenderName"></input>
+        <button type="button" id="startButton">Start</button>
+        <button type="button" id="stopButton">Stop</button>
+    </form>
+    <ul id="scoreboard"></ul>
+
+    <script>
+        const startButton = document.querySelector('#startButton');
+        const stopButton = document.querySelector('#stopButton');
+
+        const chronometer = (function () {
+            const contenderName = document.querySelector('input[name=contenderName]');
+            let startTime;
+            let contenderTime;
+
+            function start() {
+                startTime = Date.now();
+                console.log(`Clock started at ${startTime}`);
+            }
+
+            function stop() {
+                contenderTime = Date.now() - startTime;
+                console.log(`${contenderName.value}'s Clock stoped after ${contenderTime} miliseconds`);
+                sessionStorage.setItem(contenderName.value, contenderTime);
+                contenderName.value = '';
+            }
+
+            return {
+                start,
+                stop
+            }
+        })()
+
+        startButton.addEventListener('click', chronometer.start);
+        stopButton.addEventListener('click', chronometer.stop);
+
+        // determinar variaveis privadas em chronometer
+
+    </script>
+</body>
+
+</html>
