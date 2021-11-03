@@ -27,6 +27,7 @@
             const contenderName = document.querySelector('input[name=contenderName]');
             let startTime;
             let contenderTime;
+            let winner = '';
 
             function start() {
                 startTime = Date.now();
@@ -37,7 +38,17 @@
                 contenderTime = Date.now() - startTime;
                 console.log(`${contenderName.value}'s Clock stoped after ${contenderTime} miliseconds`);
                 sessionStorage.setItem(contenderName.value, contenderTime);
+                sort(contenderName.value, contenderTime);
                 contenderName.value = '';
+            }
+
+            function sort(currentName, currentTime) {
+                for (const name in sessionStorage) {
+                    if (currentTime < sessionStorage.getItem(name)) {
+                        winner = currentName;
+                    }
+                }
+                console.log(winner);
             }
 
             return {
@@ -50,6 +61,7 @@
         stopButton.addEventListener('click', chronometer.stop);
 
         // determinar variaveis privadas em chronometer
+        // usar setTimeout
 
     </script>
 </body>
