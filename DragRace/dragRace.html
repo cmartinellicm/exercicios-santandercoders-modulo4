@@ -22,6 +22,7 @@
     <script>
         const startButton = document.querySelector('#startButton');
         const stopButton = document.querySelector('#stopButton');
+        const scoreboard = document.querySelector('#scoreboard');
 
         const chronometer = (function () {
             const contenderName = document.querySelector('input[name=contenderName]');
@@ -31,15 +32,25 @@
 
             function start() {
                 startTime = Date.now();
-                console.log(`Clock started at ${startTime}`);
+                // console.log(`Clock started at ${startTime}`);
             }
 
             function stop() {
                 contenderTime = Date.now() - startTime;
-                console.log(`${contenderName.value}'s Clock stoped after ${contenderTime} miliseconds`);
+                console.log(`${contenderName.value}'s time is ${contenderTime} miliseconds`);
+
                 sessionStorage.setItem(contenderName.value, contenderTime);
+                updateScoreboard(contenderName.value, contenderTime);
                 sort(contenderName.value, contenderTime);
+
                 contenderName.value = '';
+            }
+
+            function updateScoreboard(name, time) {
+                const li = document.createElement('li');
+
+                li.appendChild(document.createTextNode(`${name}'s time is ${time} miliseconds`));
+                scoreboard.appendChild(li);
             }
 
             function sort(currentName, currentTime) {
@@ -48,7 +59,7 @@
                         winner = currentName;
                     }
                 }
-                console.log(winner);
+                console.log(`${winner} is the fastest!`);
             }
 
             return {
