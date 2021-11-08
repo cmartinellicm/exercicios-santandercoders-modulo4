@@ -40,3 +40,13 @@ _Exibição de modal e captura de dados preenchidos em formulário_
 * Botão `Open modal` abre modal na tela com formulário
 * Usuário preenche formulário e clica no botão `Ok`, os dados preenchidos são capturados e exibidos no console
 * Para fechar modal, clicar no botão `Cancel`
+
+## DragRace
+
+_Criação de cronômetro e uso do storage para armazenar tempo dos competidores em corrida._
+
+* Inserir o nome do competidor no `input`
+* Selecionar botão `start` para iniciar contagem do tempo
+* Selecionar botão `stop` para parar contagem do tempo e inserir nome e tempo do competidor em uma lista no HTML
+* Todos os competidores e seus tempos ficam armazenados em Storage temporário (sessionStorage)
+* Somente o competidor mais rápido fica armazenado em storage permanente (localStorage)
