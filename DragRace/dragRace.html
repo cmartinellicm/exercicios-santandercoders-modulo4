@@ -37,7 +37,7 @@
 
             function stop() {
                 contenderTime = Date.now() - startTime;
-                console.log(`${contenderName.value}'s time is ${contenderTime} miliseconds`);
+                // console.log(`${contenderName.value}'s time is ${contenderTime} miliseconds`);
 
                 sessionStorage.setItem(contenderName.value, contenderTime);
                 updateScoreboard(contenderName.value, contenderTime);
@@ -54,12 +54,23 @@
             }
 
             function sort(currentName, currentTime) {
-                for (const name in sessionStorage) {
-                    if (currentTime < sessionStorage.getItem(name)) {
-                        winner = currentName;
+                if (sessionStorage.length === 1) {
+                    winner = {
+                        name: currentName,
+                        time: currentTime
+                    }
+                } else {
+                    for (const name in sessionStorage) {
+                        if (currentTime < sessionStorage.getItem(name)) {
+                            winner = {
+                                name: currentName,
+                                time: currentTime
+                            }
+                        }
                     }
                 }
-                console.log(`${winner} is the fastest!`);
+                console.log(`${winner.name} is the fastest so far!`);
+                localStorage.setItem('fastest', JSON.stringify(winner));
             }
 
             return {
